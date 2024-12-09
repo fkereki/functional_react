@@ -1,24 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import { Simple } from "./simple.comp";
+import { showWhenHOF } from "./showWhen.hof";
+
+const SimpleWithWhen = showWhenHOF(Simple);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Simple name={"Alpha"} age={11} />
+      <SimpleWithWhen when={1 < 2} name={"Bravo"} age={22} />
+      <SimpleWithWhen when={1 > 2} name={"Charlie"} age={33} />
+    </>
   );
 }
 
